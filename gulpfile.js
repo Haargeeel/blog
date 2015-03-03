@@ -26,7 +26,7 @@ gulp.task('scripts', function() {
 })
 
 gulp.task('css', function() {
-  return gulp.src('src/css/*.styl')
+  return gulp.src('src/style/*.styl')
   .pipe(stylus())
-  .pipe(gulp.dest('build/css'))
+  .pipe(gulp.dest('build/style'))
 })

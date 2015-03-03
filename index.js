@@ -7,15 +7,13 @@ var app = express()
 
 var Header = React.createFactory(require('./build/react/Header'))
 
+app.use(express.static(__dirname + '/build'))
 app.set('views', __dirname + '/build')
-//app.engine('.html', require('jade').__express)
-//app.set('view engine', 'html')
 app.set('view engine', 'jade')
 
 app.get('/', function(req, res) {
   var out = {test: 'test'}
   var body = React.renderToStaticMarkup(new Header(out))
-  //var body = React.renderToString(new Header(out))
   res.render('index', {
     body: body
   })
