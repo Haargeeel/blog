@@ -13,11 +13,11 @@ gulp.task('react', function() {
   .pipe(gulp.dest('build/react'))
 })
 
-gulp.task('views', function() {
-  return gulp.src('src/view/*.jade')
-  .pipe(jade())
-  .pipe(gulp.dest('build'))
-})
+//gulp.task('views', function() {
+  //return gulp.src('src/view/*.jade')
+  //.pipe(jade())
+  //.pipe(gulp.dest('build'))
+//})
 
 gulp.task('scripts', function() {
   return gulp.src('src/js/*js')
