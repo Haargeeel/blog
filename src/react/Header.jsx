@@ -12,7 +12,7 @@ var Header = React.createClass({
 
   render: function() {
     return (
-      <div>
+      <div className='header'>
         Header
       </div> 
     );

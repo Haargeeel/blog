@@ -6,14 +6,16 @@ var express = require('express'),
 var app = express()
 
 var Header = React.createFactory(require('./build/react/Header'))
+var Cover = React.createFactory(require('./build/react/Cover'))
+var Landing = React.createFactory(require('./build/react/Landing'))
 
 app.use(express.static(__dirname + '/build'))
 app.set('views', __dirname + '/build')
 app.set('view engine', 'jade')
 
 app.get('/', function(req, res) {
-  var out = {test: 'test'}
-  var body = React.renderToStaticMarkup(new Header(out))
+  var out = {img: '../img/cover.jpg'}
+  var body = React.renderToStaticMarkup(new Landing(out))
   res.render('index', {
     body: body
   })

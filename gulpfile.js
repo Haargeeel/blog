@@ -2,7 +2,10 @@ var gulp = require('gulp'),
     uglify = require('gulp-uglify'),
     jade = require('gulp-jade'),
     react = require('gulp-react'),
-    stylus = require('gulp-stylus')
+    stylus = require('gulp-stylus'),
+    reactify = require('reactify'),
+    browserify = require('browserify'),
+    source = require('vinyl-source-stream')
 
 gulp.task('default', function() {
   console.log('start gulping')
@@ -19,11 +22,21 @@ gulp.task('copy', function() {
   .pipe(gulp.dest('build'))
 })
 
-gulp.task('scripts', function() {
-  return gulp.src('src/js/*.js')
-  .pipe(uglify())
-  .pipe(gulp.dest('build/js'))
+gulp.task('js', function() {
+  var b = browserify('./src/js/app.js')
+    .transform(reactify);
+
+  return b.bundle()
+    .pipe(source('app.js'))
+    .pipe(gulp.dest('build/js'))
 })
+
+
+//gulp.task('scripts', function() {
+  //return gulp.src('src/js/*.js')
+  //.pipe(uglify())
+  //.pipe(gulp.dest('build/js'))
+//})
 
 gulp.task('css', function() {
   return gulp.src('src/style/*.styl')
