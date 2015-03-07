@@ -13,7 +13,25 @@ var Header = React.createClass({
   render: function() {
     return (
       <div className='header'>
-        Header
+        <div className='logo'>
+          <span>Blog</span>
+        </div>
+        <div className='title'>
+          <h1>Home</h1>
+        </div>
+        <div className='extra'>
+          <div className='icon'>
+            <div className='circle'>
+            </div>
+          </div>
+          <div className='more'>
+            <div className='lines'>
+              <div className='line top'></div>
+              <div className='line middle'></div>
+              <div className='line bottom'></div>
+            </div>
+          </div>
+        </div>
       </div> 
     );
   }

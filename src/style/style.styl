@@ -1,5 +1,102 @@
+@font-face
+  font-family ubuntu
+  src url('../fonts/Ubuntu-L.ttf')
+
 body
   margin 0
+
+h1
+  font-family ubuntu
+  margin 0
+
+.header
+  height 50px
+  width 100%
+  border-bottom 1px solid #ddd
+
+  .logo
+    width 15%
+    height 100%
+    float left
+    font-family sans-serif
+    font-weight bold
+    font-size 20px
+    position relative
+
+    span
+      padding-left 15px
+      top 50%
+      transform translateY(-50%)
+      position absolute
+
+  .title
+    width 70%
+    height 100%
+    float left
+
+    h1
+      margin auto
+      text-align center
+
+  .extra
+    width 15%
+    height 100%
+    float left
+
+    .icon
+      position relative
+      width 50%
+      height 100%
+      float left
+      text-align right
+
+      .circle
+        position absolute
+        height 30px
+        width 30px
+        right 0
+        background-color #ccc
+        background-image url('../img/ray.jpg')
+        background-size cover
+        border-radius 15px
+        top 50%
+        transform translateY(-50%)
+
+    .more
+      position relative
+      width 50%
+      height 100%
+      float left
+
+      .lines
+        position absolute
+        width 30px
+        height 30px
+        left 25%
+        top 50%
+        transform translateY(-50%) translateX(-50%)
+        cursor pointer
+
+        .line
+          position absolute
+          background-color #ccc
+          height 2px
+          width 80%
+          left 10%
+          border-radius 2px
+
+        .top
+          top 25%
+
+        .middle
+          top 50%
+
+        .bottom
+          top 75%
+
+      .lines:hover .line
+        background-color #999
+
 
 .cover
   position relative
