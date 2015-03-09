@@ -14,7 +14,9 @@ var Header = React.createClass({
     return (
       <div className='header'>
         <div className='logo'>
-          <span>Blog</span>
+          <p>OVER</p>
+          <p>ENGINEERED</p>
+          <p>BLOG</p>
         </div>
         <div className='title'>
           <h1>Home</h1>

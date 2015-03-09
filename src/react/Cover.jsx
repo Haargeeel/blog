@@ -4,6 +4,7 @@ var Cover = React.createClass({
 
   getInitialState: function() {
     return {
+      initTop: 70,
       id: 0,
       magicTop: 200
     }
@@ -11,16 +12,13 @@ var Cover = React.createClass({
 
   componentDidMount: function() {
     var cover = document.getElementsByClassName('cover')[0]
-    var image = document.getElementsByClassName('image')[0]
-    //document.getElementsByClassName('image')[0].style.top = this.state.magicTop + 'px'
     document.getElementsByClassName('image')[0].style.top = '0px'
-    var top, imgTop
+    var top
     var that = this
+    //this.setState({initTop: cover.getBoundingClientRect().top})
     window.addEventListener('scroll', function(e) {
       top = cover.getBoundingClientRect().top
-      console.log('coverTop', top)
-      imgTop = image.getBoundingClientRect().top
-      if (top < that.state.magicTop && top > -that.state.magicTop)
+      if (top <= that.state.initTop && top >= that.state.initTop - 200)
         that.animate(top)
     })
   },
@@ -31,18 +29,19 @@ var Cover = React.createClass({
     var d = 0
     var that = this
     var id = setInterval(function() {
-      if (top === parseInt(img.style.top))
+      var imgTop = parseInt(img.style.top) + that.state.initTop
+      if (top === imgTop)
         clearInterval(id)
       else {
-        if (Math.abs(top-parseInt(img.style.top)) > 10)
-          d = Math.abs(top-parseInt(img.style.top)) * 0.5
-        else if (Math.abs(top-parseInt(img.style.top)) > 5)
+        if (Math.abs(top-imgTop) > 10)
+          d = Math.abs(top-imgTop) * 0.5
+        else if (Math.abs(top-imgTop) > 5)
           d = 5
-        else if (Math.abs(top-parseInt(img.style.top)) > 2)
+        else if (Math.abs(top-imgTop) > 2)
           d = 2
-        else if (Math.abs(top-parseInt(img.style.top)) > 0)
+        else if (Math.abs(top-imgTop) > 0)
           d = 1
-        if (top < parseInt(img.style.top))
+        if (top < imgTop)
           img.style.top = (parseInt(img.style.top) - d) + 'px'
         else
           img.style.top = (parseInt(img.style.top) + d) + 'px'
@@ -54,9 +53,13 @@ var Cover = React.createClass({
   render: function() {
     return (
       <div className='cover'>
+        <div className='darker'></div>
         <img className='image' src={this.props.img}/>
-        <div className='obstacle-top'></div>
-        <div className='obstacle-bottom'></div>
+        <div className='headline'>
+          <h2>Welcome</h2>
+          <h2>to my</h2>
+          <h2>Blog!</h2>
+        </div>
       </div> 
     );
   }
