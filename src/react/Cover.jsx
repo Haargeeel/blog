@@ -12,10 +12,13 @@ var Cover = React.createClass({
 
   componentDidMount: function() {
     var cover = document.getElementsByClassName('cover')[0]
+    var body = document.getElementsByTagName('body')[0]
     document.getElementsByClassName('image')[0].style.top = '0px'
     var top
     var that = this
-    //this.setState({initTop: cover.getBoundingClientRect().top})
+    var initTop = cover.getBoundingClientRect().top
+                - body.getBoundingClientRect().top
+    this.setState({initTop: initTop})
     window.addEventListener('scroll', function(e) {
       top = cover.getBoundingClientRect().top
       if (top <= that.state.initTop && top >= that.state.initTop - 200)
