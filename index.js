@@ -5,8 +5,8 @@ var express = require('express'),
 
 var app = express()
 
-var Header = React.createFactory(require('./build/react/Header'))
-var Cover = React.createFactory(require('./build/react/Cover'))
+//var Header = React.createFactory(require('./build/react/Header'))
+//var Cover = React.createFactory(require('./build/react/Cover'))
 var Landing = React.createFactory(require('./build/react/Landing'))
 
 app.use(express.static(__dirname + '/build'))

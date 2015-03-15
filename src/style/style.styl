@@ -1,6 +1,18 @@
 @font-face
   font-family ubuntu
   src url('../fonts/Ubuntu-L.ttf')
+@font-face
+  font-family aaargh
+  src url('../fonts/Aaargh.ttf')
+@font-face
+  font-family colab
+  src url('../fonts/ColabThi.otf')
+
+primaryColor = #2C3E50
+secondaryColor = #E74C3C
+3Color = #ECF0F1
+4Color = #3498DB
+5Color = #2980B9
 
 body
   margin 0
@@ -93,7 +105,7 @@ h3
 
         .line
           position absolute
-          background-color #ccc
+          background-color primaryColor
           height 2px
           width 80%
           left 10%
@@ -109,7 +121,7 @@ h3
           top 75%
 
       .lines:hover .line
-        background-color #999
+        background-color secondaryColor
 
 
 .cover
@@ -132,6 +144,8 @@ h3
 
   .headline
     z-index 5
+    top 50%
+    transform translateY(-50%)
     position absolute
     width 100%
 
@@ -146,14 +160,17 @@ h3
   margin auto
 
   h2
+    color primaryColor
     font-size 60px
     margin 15px 0 15px 0
 
   h3
-    font-size 30px
+    font-size 25px
+    font-family aaargh
     margin 15px 0 15px 0
-    color #999
+    color secondaryColor
 
   p
-    font-size 22px
+    font-size 25px
     line-height 1.5
+    font-family colab

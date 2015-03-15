@@ -6,6 +6,7 @@ var Cover = React.createClass({
     return {
       initTop: 70,
       id: 0,
+      height: 800,
       magicTop: 200
     }
   },
@@ -13,15 +14,21 @@ var Cover = React.createClass({
   componentDidMount: function() {
     var cover = document.getElementsByClassName('cover')[0]
     var body = document.getElementsByTagName('body')[0]
+    var image = document.getElementsByClassName('image')[0]
+    cover.style.height = window.innerHeight + 'px'
+    var delta = window.innerHeight * 0.4
+    image.style.height = (window.innerHeight + delta) + 'px'
     document.getElementsByClassName('image')[0].style.top = '0px'
     var top
     var that = this
     var initTop = cover.getBoundingClientRect().top
                 - body.getBoundingClientRect().top
-    this.setState({initTop: initTop})
+    this.setState({initTop: initTop,
+                   magicTop: delta})
     window.addEventListener('scroll', function(e) {
       top = cover.getBoundingClientRect().top
-      if (top <= that.state.initTop && top >= that.state.initTop - 200)
+      if (top <= that.state.initTop 
+       && top >= that.state.initTop - that.state.magicTop)
         that.animate(top)
     })
   },
